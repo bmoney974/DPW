@@ -14,28 +14,31 @@ class MainHandler(webapp2.RequestHandler):
         b.car_note = 440
         b.food = 150
         b.check = 4500
+        b.id = 1
         b.calc_budget()
 
 
-        # #John's Bills
-        # j = budget()
-        # j.rent = 500
-        # j.cell_phone = 60
-        # j.cable = 75
-        # j.car_note = 300
-        # j.food = 100
-        # j.check = 2500
-        # j.calc_budget()
-        #
-        # #Sara's Bills
-        # s = budget()
-        # s.rent = 900
-        # s.cell_phone = 50
-        # s.cable = 50
-        # s.car_note = 0
-        # s.food = 175
-        # s.check = 5000
-        # s.calc_budget()
+        #John's Bills
+        j = budget()
+        j.rent = 500
+        j.cell_phone = 60
+        j.cable = 75
+        j.car_note = 300
+        j.food = 100
+        j.check = 2500
+        j.id = 2
+        j.calc_budget()
+
+        #Sara's Bills
+        s = budget()
+        s.rent = 900
+        s.cell_phone = 50
+        s.cable = 50
+        s.car_note = 0
+        s.food = 175
+        s.check = 5000
+        s.id = 3
+        s.calc_budget()
 
         #"Bobby Has " + "$" + str(b.money_left) + " left to spend for the month"
 
@@ -43,16 +46,25 @@ class MainHandler(webapp2.RequestHandler):
         p.title = "My Budget"
         p.css = "css/styles.css"
         p.body = '''
-<a href=?user=Bobby>Bobby's Money Left</a><br />
-<a href=?user=John>John's Money Left</a><br />
-<a href=?user=Sara>Sara's Money Left</a>
+<a href=?user1=Bobby>Bobby's Money Left</a><br />
+<a href=?user2=John>John's Money Left</a><br />
+<a href=?user3=Sara>Sara's Money Left</a>
         '''
 
         self.response.write(p.whole_page)
 
         if self.request.GET:
-            user = self.request.GET['user']
+            user = self.request.GET['user1']
             self.response.write("<br />" + user + " Has " + "$" + str(b.money_left) + " left to spend for the month")
+        elif self.request.GET:
+            user = self.request.GET['user2']
+            self.response.write("<br />" + user + " Has " + "$" + str(j.money_left) + " left to spend for the month")
+        elif self.request.GET:
+            user = self.request.GET['user3']
+            self.response.write("<br />" + user + " Has " + "$" + str(s.money_left) + " left to spend for the month")
+        else:
+            pass
+
 
 
 
@@ -66,6 +78,7 @@ class budget(object):
         self.car_note = 0
         self.food = 0
         self.check = 0
+        self.id = 0
         self.__money_left = 0  # two underscores = private
         self.__money_left = int(self.check - (self.rent + self.cell_phone + self.cable + self.car_note + self.food))
 
