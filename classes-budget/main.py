@@ -20,10 +20,10 @@ class MainHandler(webapp2.RequestHandler):
         p = Page()
         p.title = "My Budget"
         p.css = "css/styles.css"
-        p.body = '''
-<a href ="?money=cash_left">Show Money</a>
+        p.body = "<a href ="?money=cash_left">Show Money</a>"
 
-        '''
+
+
 
         self.response.write(p.whole_page)
 
