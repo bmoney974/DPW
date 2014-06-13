@@ -46,24 +46,16 @@ class MainHandler(webapp2.RequestHandler):
         p.title = "My Budget"
         p.css = "css/styles.css"
         p.body = '''
-<a href=?user1=Bobby>Bobby's Money Left</a><br />
-<a href=?user2=John>John's Money Left</a><br />
-<a href=?user3=Sara>Sara's Money Left</a>
+<a href=?user=Bobby>Bobby's Money Left</a><br />
+<a href=?user=John>John's Money Left</a><br />
+<a href=?user=Sara>Sara's Money Left</a>
         '''
 
         self.response.write(p.whole_page)
 
         if self.request.GET:
-            user1 = self.request.GET['user1']
-            self.response.write("<br />" + user1 + " Has " + "$" + str(b.money_left) + " left to spend for the month")
-        elif self.request.GET:
-            user2 = self.request.GET['user2']
-            self.response.write("<br />" + user2 + " Has " + "$" + str(j.money_left) + " left to spend for the month")
-        elif self.request.GET:
-            user3 = self.request.GET['user3']
-            self.response.write("<br />" + user3 + " Has " + "$" + str(s.money_left) + " left to spend for the month")
-        else:
-            pass
+            user = self.request.GET['user']
+            self.response.write("<br />" + user + " Has " + "$" + str(b.money_left) + " left to spend for the month")
 
 
 
