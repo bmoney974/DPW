@@ -8,27 +8,52 @@ class MainHandler(webapp2.RequestHandler):
 
      #Bobby's Bills
         b = budget()
+        b.rent = 655
+        b.cell_phone = 100
+        b.cable = 60
+        b.car_note = 440
+        b.food = 150
+        b.check = 4500
+        b.calc_budget()
+
+
+        #John's Bills
+        j = budget()
+        j.rent = 500
+        j.cell_phone = 60
+        j.cable = 75
+        j.car_note = 300
+        j.food = 100
+        j.check = 4500
+        j.calc_budget()
+
+        #Sara's Bills
+        s = budget()
         b.rent = 500
         b.cell_phone = 100
         b.cable = 75
         b.car_note = 300
         b.food = 100
+        b.check = 4500
         b.calc_budget()
 
-        cash_left = "Bobby Has " + "$" + str(b.money_left) + " left to spend for the month"
+        #"Bobby Has " + "$" + str(b.money_left) + " left to spend for the month"
 
         p = Page()
         p.title = "My Budget"
         p.css = "css/styles.css"
         p.body = '''
-<a href=?money=cash_left>ShowMoney</a>
+<a href=?user=Bobby>Bobby's Money Left</a>
         '''
 
         self.response.write(p.whole_page)
 
         if self.request.GET:
-            money = self.request.GET['money']
-            self.response.write(money)
+            user = self.request.GET['user']
+            self.response.write(user + " Has " + "$" + str(b.money_left) + " left to spend for the month")
+
+
+
 
 
 class budget(object):
@@ -38,8 +63,9 @@ class budget(object):
         self.cable = 0
         self.car_note = 0
         self.food = 0
+        self.check = 0
         self.__money_left = 0  # two underscores = private
-        self.__money_left = 1300 - int((self.rent + self.cell_phone + self.cable + self.car_note + self.food))
+        self.__money_left = int(- self.check - (self.rent + self.cell_phone + self.cable + self.car_note + self.food))
 
     @property
     def money_left(self):
