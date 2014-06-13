@@ -29,12 +29,12 @@ class MainHandler(webapp2.RequestHandler):
 
         #Sara's Bills
         s = budget()
-        s.rent = 500
-        s.cell_phone = 100
-        s.cable = 75
-        s.car_note = 300
-        s.food = 100
-        s.check = 4500
+        s.rent = 900
+        s.cell_phone = 50
+        s.cable = 50
+        s.car_note = 0
+        s.food = 175
+        s.check = 5000
         s.calc_budget()
 
         #"Bobby Has " + "$" + str(b.money_left) + " left to spend for the month"
