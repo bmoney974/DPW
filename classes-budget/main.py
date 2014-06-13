@@ -54,14 +54,14 @@ class MainHandler(webapp2.RequestHandler):
         self.response.write(p.whole_page)
 
         if self.request.GET:
-            user = self.request.GET['user1']
-            self.response.write("<br />" + user + " Has " + "$" + str(b.money_left) + " left to spend for the month")
+            user1 = self.request.GET['user1']
+            self.response.write("<br />" + user1 + " Has " + "$" + str(b.money_left) + " left to spend for the month")
         elif self.request.GET:
-            user = self.request.GET['user2']
-            self.response.write("<br />" + user + " Has " + "$" + str(j.money_left) + " left to spend for the month")
+            user2 = self.request.GET['user2']
+            self.response.write("<br />" + user2 + " Has " + "$" + str(j.money_left) + " left to spend for the month")
         elif self.request.GET:
-            user = self.request.GET['user3']
-            self.response.write("<br />" + user + " Has " + "$" + str(s.money_left) + " left to spend for the month")
+            user3 = self.request.GET['user3']
+            self.response.write("<br />" + user3 + " Has " + "$" + str(s.money_left) + " left to spend for the month")
         else:
             pass
 
