@@ -24,7 +24,7 @@ class MainHandler(webapp2.RequestHandler):
         j.cable = 75
         j.car_note = 300
         j.food = 100
-        j.check = 4500
+        j.check = 2500
         j.calc_budget()
 
         #Sara's Bills
@@ -33,9 +33,9 @@ class MainHandler(webapp2.RequestHandler):
         s.cell_phone = 100
         s.cable = 75
         s.car_note = 300
-        b.food = 100
-        b.check = 4500
-        b.calc_budget()
+        s.food = 100
+        s.check = 4500
+        s.calc_budget()
 
         #"Bobby Has " + "$" + str(b.money_left) + " left to spend for the month"
 
