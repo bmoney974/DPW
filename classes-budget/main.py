@@ -29,10 +29,10 @@ class MainHandler(webapp2.RequestHandler):
 
         #Sara's Bills
         s = budget()
-        b.rent = 500
-        b.cell_phone = 100
-        b.cable = 75
-        b.car_note = 300
+        s.rent = 500
+        s.cell_phone = 100
+        s.cable = 75
+        s.car_note = 300
         b.food = 100
         b.check = 4500
         b.calc_budget()
