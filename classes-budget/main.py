@@ -17,25 +17,25 @@ class MainHandler(webapp2.RequestHandler):
         b.calc_budget()
 
 
-        #John's Bills
-        j = budget()
-        j.rent = 500
-        j.cell_phone = 60
-        j.cable = 75
-        j.car_note = 300
-        j.food = 100
-        j.check = 2500
-        j.calc_budget()
-
-        #Sara's Bills
-        s = budget()
-        s.rent = 900
-        s.cell_phone = 50
-        s.cable = 50
-        s.car_note = 0
-        s.food = 175
-        s.check = 5000
-        s.calc_budget()
+        # #John's Bills
+        # j = budget()
+        # j.rent = 500
+        # j.cell_phone = 60
+        # j.cable = 75
+        # j.car_note = 300
+        # j.food = 100
+        # j.check = 2500
+        # j.calc_budget()
+        #
+        # #Sara's Bills
+        # s = budget()
+        # s.rent = 900
+        # s.cell_phone = 50
+        # s.cable = 50
+        # s.car_note = 0
+        # s.food = 175
+        # s.check = 5000
+        # s.calc_budget()
 
         #"Bobby Has " + "$" + str(b.money_left) + " left to spend for the month"
 
@@ -67,7 +67,7 @@ class budget(object):
         self.food = 0
         self.check = 0
         self.__money_left = 0  # two underscores = private
-        self.__money_left = int(- self.check - (self.rent + self.cell_phone + self.cable + self.car_note + self.food))
+        self.__money_left = int(self.check - (self.rent + self.cell_phone + self.cable + self.car_note + self.food))
 
     @property
     def money_left(self):
@@ -80,7 +80,7 @@ class budget(object):
 
     def calc_budget(self):
         #calculate final grade
-        self.__money_left = 1300 - int((self.rent + self.cell_phone + self.cable + self.car_note + self.food))
+        self.__money_left = int(self.check - (self.rent + self.cell_phone + self.cable + self.car_note + self.food))
 
 
 
