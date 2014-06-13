@@ -43,8 +43,8 @@ class MainHandler(webapp2.RequestHandler):
         p.title = "My Budget"
         p.css = "css/styles.css"
         p.body = '''
-<a href=?user=Bobby>Bobby's Money Left</a>
-<a href=?user=John>John's Money Left</a>
+<a href=?user=Bobby>Bobby's Money Left</a><br />
+<a href=?user=John>John's Money Left</a><br />
 <a href=?user=Sara>Sara's Money Left</a>
         '''
 
