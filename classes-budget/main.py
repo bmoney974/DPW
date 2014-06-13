@@ -21,7 +21,7 @@ class MainHandler(webapp2.RequestHandler):
         p.title = "My Budget"
         p.css = "css/styles.css"
         p.body = '''
-
+<a href ="?money=cash_left">Show Money</a>
 
         '''
 
@@ -51,8 +51,8 @@ class budget(object):
         self.__money_left = 1300 - int((self.rent + self.cell_phone + self.cable + self.car_note + self.food))
 
 
-        if self.request.GET:
-            money = self.request.GET['money']
+    if self.request.GET:
+        money = self.request.GET['money']
 
 
 app = webapp2.WSGIApplication([
