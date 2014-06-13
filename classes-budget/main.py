@@ -20,7 +20,10 @@ class MainHandler(webapp2.RequestHandler):
         p = Page()
         p.title = "My Budget"
         p.css = "css/styles.css"
-        p.body = cash_left
+        p.body = '''
+
+
+        '''
 
         self.response.write(p.whole_page)
 
@@ -48,7 +51,8 @@ class budget(object):
         self.__money_left = 1300 - int((self.rent + self.cell_phone + self.cable + self.car_note + self.food))
 
 
-
+        if self.request.GET:
+            money = self.request.GET['money']
 
 
 app = webapp2.WSGIApplication([
