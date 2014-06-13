@@ -52,7 +52,7 @@ class MainHandler(webapp2.RequestHandler):
 
         if self.request.GET:
             user = self.request.GET['user']
-            self.response.write(user + " Has " + "$" + str(b.money_left) + " left to spend for the month")
+            self.response.write("<br />" + user + "Has " + "$" + str(b.money_left) + " left to spend for the month")
 
 
 
