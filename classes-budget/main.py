@@ -66,8 +66,8 @@ class MainHandler(webapp2.RequestHandler):
         p.body = '''
 <a href=?user=Bobby>Bobby's Money Left</a><br />
 <a href=?user=John>John's Money Left</a><br />
-<a href=?user=Sara>Sara's Money Left</a>
-<a href=?user=Mike>Sara's Money Left</a>
+<a href=?user=Sara>Sara's Money Left</a></br />
+<a href=?user=Mike>Sara's Money Left</a><br />
 <a href=?user=Ashley>Ashley's Money Left</a>
         '''
 
