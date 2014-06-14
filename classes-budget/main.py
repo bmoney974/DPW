@@ -38,14 +38,14 @@ class MainHandler(webapp2.RequestHandler):
         s.calc_budget()
 
         #Mikes's Bills
-        s = budget()
-        s.rent = 450
-        s.cell_phone = 30
-        s.cable = 50
-        s.car_note = 250
-        s.food = 100
-        s.check = 3000
-        s.calc_budget()
+        m = budget()
+        m.rent = 450
+        m.cell_phone = 30
+        m.cable = 50
+        m.car_note = 250
+        m.food = 100
+        m.check = 3000
+        m.calc_budget()
 
         #Ashley's Bills
         s = budget()
