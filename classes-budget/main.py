@@ -6,7 +6,8 @@ class MainHandler(webapp2.RequestHandler):
     def get(self):
 
 
-     #Bobby's Bills
+
+        #Bobby's Bills       ##### 5 Student data objects ######
         b = budget()
         b.rent = 655
         b.cell_phone = 100
@@ -58,9 +59,9 @@ class MainHandler(webapp2.RequestHandler):
         a.calc_budget()
 
 
-        #"Bobby Has " + "$" + str(b.money_left) + " left to spend for the month"
 
-        p = Page()
+
+        p = Page()         #### Page and html set up ######
         p.title = "My Budget"
         p.css = "css/styles.css"
         p.body = '''
@@ -79,10 +80,9 @@ class MainHandler(webapp2.RequestHandler):
 <div class="money">
         '''
 
+#### Links above ^ to show student data   ######
 
-
-
-        self.response.write(p.whole_page)
+        self.response.write(p.whole_page)      ####  Student data below   ######
 
         if self.request.GET and self.request.GET["user"] == "Bobby":
             user = self.request.GET['user']
@@ -108,13 +108,7 @@ class MainHandler(webapp2.RequestHandler):
 "</div>"
 
 
-
-
-
-
-
-
-class budget(object):
+class budget(object):   #### Object containing student attributes   ######
     def __init__(self):
         self.rent = 0  # no undersocres = public
         self.cell_phone = 0
@@ -126,16 +120,18 @@ class budget(object):
         self.__money_left = 0  # two underscores = private
         self.__money_left = int(self.check - (self.rent + self.cell_phone + self.cable + self.car_note + self.food))
 
-    @property
+
+
+    @property     #### Property decorator   ######
     def money_left(self):
 
         return self.__money_left
 
-    @money_left.setter
+    @money_left.setter    #### setter   ######
     def money_left(self, new_money_left):
         self.__money_left = new_money_left
 
-    def calc_budget(self):
+    def calc_budget(self):  #### budget calculator    ######
         #calculate money left
         self.__money_left = int(self.check - (self.rent + self.cell_phone + self.cable + self.car_note + self.food))
 
