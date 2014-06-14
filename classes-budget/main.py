@@ -37,6 +37,27 @@ class MainHandler(webapp2.RequestHandler):
         s.check = 5000
         s.calc_budget()
 
+        #Mikes's Bills
+        s = budget()
+        s.rent = 450
+        s.cell_phone = 30
+        s.cable = 50
+        s.car_note = 250
+        s.food = 100
+        s.check = 3000
+        s.calc_budget()
+
+        #Ashley's Bills
+        s = budget()
+        s.rent = 700
+        s.cell_phone = 60
+        s.cable = 50
+        s.car_note = 300
+        s.food = 125
+        s.check = 3500
+        s.calc_budget()
+
+
         #"Bobby Has " + "$" + str(b.money_left) + " left to spend for the month"
 
         p = Page()
