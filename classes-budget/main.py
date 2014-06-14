@@ -71,7 +71,10 @@ class MainHandler(webapp2.RequestHandler):
 <a href=?user=Mike>Mikes's Money Left</a><br />
 <a href=?user=Ashley>Ashley's Money Left</a>
 </div>
+<div class="money">
         '''
+
+
 
 
         self.response.write(p.whole_page)
@@ -95,6 +98,7 @@ class MainHandler(webapp2.RequestHandler):
             pass
 
 
+"</div>"
 
 
 

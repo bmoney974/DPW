@@ -1,3 +1,13 @@
 body {
 
     }
+
+.links {
+    float:left;
+    position:relative;
+    top:30px;
+    }
+
+.money {
+    float:right;
+}
