@@ -48,14 +48,14 @@ class MainHandler(webapp2.RequestHandler):
         m.calc_budget()
 
         #Ashley's Bills
-        s = budget()
-        s.rent = 700
-        s.cell_phone = 60
-        s.cable = 50
-        s.car_note = 300
-        s.food = 125
-        s.check = 3500
-        s.calc_budget()
+        a = budget()
+        a.rent = 700
+        a.cell_phone = 60
+        a.cable = 50
+        a.car_note = 300
+        a.food = 125
+        a.check = 3500
+        a.calc_budget()
 
 
         #"Bobby Has " + "$" + str(b.money_left) + " left to spend for the month"
@@ -84,10 +84,10 @@ class MainHandler(webapp2.RequestHandler):
             self.response.write("<br />" + user + " Has " + "$" + str(s.money_left) + " left to spend for the month")
         elif self.request.GET and self.request.GET["user"] == "Mike":
             user = self.request.GET['user']
-            self.response.write("<br />" + user + " Has " + "$" + str(s.money_left) + " left to spend for the month")
+            self.response.write("<br />" + user + " Has " + "$" + str(m.money_left) + " left to spend for the month")
         elif self.request.GET and self.request.GET["user"] == "Ashley":
             user = self.request.GET['user']
-            self.response.write("<br />" + user + " Has " + "$" + str(s.money_left) + " left to spend for the month")
+            self.response.write("<br />" + user + " Has " + "$" + str(a.money_left) + " left to spend for the month")
         else:
             pass
 
