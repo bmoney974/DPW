@@ -67,6 +67,8 @@ class MainHandler(webapp2.RequestHandler):
 <a href=?user=Bobby>Bobby's Money Left</a><br />
 <a href=?user=John>John's Money Left</a><br />
 <a href=?user=Sara>Sara's Money Left</a>
+<a href=?user=Mike>Sara's Money Left</a>
+<a href=?user=Ashley>Ashley's Money Left</a>
         '''
 
         self.response.write(p.whole_page)
@@ -78,6 +80,12 @@ class MainHandler(webapp2.RequestHandler):
             user = self.request.GET['user']
             self.response.write("<br />" + user + " Has " + "$" + str(j.money_left) + " left to spend for the month")
         elif self.request.GET and self.request.GET["user"] == "Sara":
+            user = self.request.GET['user']
+            self.response.write("<br />" + user + " Has " + "$" + str(s.money_left) + " left to spend for the month")
+        elif self.request.GET and self.request.GET["user"] == "Mike":
+            user = self.request.GET['user']
+            self.response.write("<br />" + user + " Has " + "$" + str(s.money_left) + " left to spend for the month")
+        elif self.request.GET and self.request.GET["user"] == "Ashley":
             user = self.request.GET['user']
             self.response.write("<br />" + user + " Has " + "$" + str(s.money_left) + " left to spend for the month")
         else:
