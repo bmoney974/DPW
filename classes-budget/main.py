@@ -14,7 +14,6 @@ class MainHandler(webapp2.RequestHandler):
         b.car_note = 440
         b.food = 150
         b.check = 4500
-        b.id = b.money_left
         b.calc_budget()
 
 
@@ -26,7 +25,6 @@ class MainHandler(webapp2.RequestHandler):
         j.car_note = 300
         j.food = 100
         j.check = 2500
-        j.id = j.money_left
         j.calc_budget()
 
         #Sara's Bills
@@ -37,7 +35,6 @@ class MainHandler(webapp2.RequestHandler):
         s.car_note = 0
         s.food = 175
         s.check = 5000
-        s.id = s.money_left
         s.calc_budget()
 
         #"Bobby Has " + "$" + str(b.money_left) + " left to spend for the month"
@@ -53,9 +50,23 @@ class MainHandler(webapp2.RequestHandler):
 
         self.response.write(p.whole_page)
 
-        if self.request.GET:
+        if self.request.GET and self.request.GET["user"] == "Bobby":
             user = self.request.GET['user']
             self.response.write("<br />" + user + " Has " + "$" + str(b.money_left) + " left to spend for the month")
+        elif self.request.GET and self.request.GET["user"] == "John":
+            user = self.request.GET['user']
+            self.response.write("<br />" + user + " Has " + "$" + str(j.money_left) + " left to spend for the month")
+        elif self.request.GET and self.request.GET["user"] == "Sara":
+            user = self.request.GET['user']
+            self.response.write("<br />" + user + " Has " + "$" + str(s.money_left) + " left to spend for the month")
+        else:
+            pass
+
+
+
+
+
+
 
 
 
