@@ -5,9 +5,33 @@ body {
 .links {
     float:left;
     position:relative;
-    top:30px;
+    top:65px;
+    left:100px;
     }
 
 .money {
     float:right;
+    position:relative;
+    right:150px;
+    top:20px;
+    font-size:30px;
+
 }
+
+.wrapper {
+    width: 90%;
+    margin:0px auto;
+    background:gray;
+    border: 2px solid black;
+    overflow:hidden;
+    height:700px;
+    margin-top:30px;
+
+    }
+
+.header {
+    widht:100%;
+    background:black
+    color:white;
+    text-align:center;
+    }
