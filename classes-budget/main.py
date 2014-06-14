@@ -64,8 +64,10 @@ class MainHandler(webapp2.RequestHandler):
         p.title = "My Budget"
         p.css = "css/styles.css"
         p.body = '''
-<div class="header"><h1>Student Monthly Budgets</h1></div>
+
 <div class ="wrapper">
+<div class="header"><h1>Student Monthly Budgets</h1></div>
+
 <div class = "links">
 <a href=?user=Bobby>Bobby's Money Left</a><br />
 <a href=?user=John>John's Money Left</a><br />
@@ -73,6 +75,7 @@ class MainHandler(webapp2.RequestHandler):
 <a href=?user=Mike>Mikes's Money Left</a><br />
 <a href=?user=Ashley>Ashley's Money Left</a>
 </div>
+
 <div class="money">
         '''
 

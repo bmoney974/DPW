@@ -6,13 +6,17 @@ body {
     float:left;
     position:relative;
     top:65px;
-    left:100px;
+    left:80px;
+    border: 3px solid black;
+    padding:30px;
+    background:#A6A6A6;
+    font-size:24px;
     }
 
 .money {
-    float:right;
+    float:left;
     position:relative;
-    right:150px;
+    left:120px;
     top:20px;
     font-size:30px;
 
@@ -21,17 +25,22 @@ body {
 .wrapper {
     width: 90%;
     margin:0px auto;
-    background:gray;
+    background:#F2F2F2;
     border: 2px solid black;
     overflow:hidden;
     height:700px;
-    margin-top:30px;
+    min-width:960px;
+    border-radius: 0px 0px 15px 15px ;
+    box-shadow: 5px 5px 5px black;
+
 
     }
 
 .header {
-    widht:100%;
-    background:black
+    width:100%;
+    background:#006DCC;
     color:white;
     text-align:center;
+    padding:20px;
+    margin:0px auto;
     }
