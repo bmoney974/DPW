@@ -69,6 +69,13 @@ class Animal(object): #borrowing stuff from the object class
         self.geolocation = 0
 
 
+    def animal_sound():
+        sound = "growl"
+        return sound
+    q = animal_sound()
+    print q
+
+
     def print_out(self):
             return  self._head + self._body + self._close
 
@@ -77,7 +84,7 @@ class snake(Animal):
         #constructor function for super class
         super(snake, self).__init__() #Page.__init__()
     def sound(self):
-        return 
+        return
 
 
 class dog(Animal):
