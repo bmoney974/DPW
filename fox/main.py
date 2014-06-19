@@ -86,12 +86,12 @@ class Animal(object): #borrowing stuff from the object class
 
 
     def print_out(self):
-        return self._head + self._body + self._close + str(self.__sound)
+        return self._head + self._body + self._close + str(snake_sound.Animal + dog_sound.Animal)
 
 
-snd = Animal()
-snd.Animal = "hsss"
-print snd.Animal
+# snd = Animal()
+# snd.Animal = "hsss"
+# print snd.Animal
 
 class snake(Animal):
     def __init__(self):
@@ -100,8 +100,7 @@ class snake(Animal):
         self.__sound = "hsss"
 
 
-    def print_out(self):
-        return self.__sound
+
 
     @property
     def sound(self, value):
@@ -110,7 +109,9 @@ class snake(Animal):
     def sound(self, value):
         self.__sound = value
 
-
+snake_sound = Animal()
+snake_sound.Animal = "hsss222"
+print snake_sound.Animal
 
 
 
@@ -119,6 +120,17 @@ class dog(Animal):
     def __init__(self):
         #constructor function for super class
         super(dog, self).__init__() #Page.__init__()
+
+    @property
+    def sound(self, value):
+        return self.__sound
+    @sound.setter
+    def sound(self, value):
+        self.__sound = value
+
+dog_sound = Animal()
+dog_sound.Animal = "Woof"
+print dog_sound.Animal
 
 
 
