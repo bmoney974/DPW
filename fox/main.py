@@ -117,7 +117,11 @@ class cow(Animal):
         return sound
     q = animal_sound()
     print q
-
+        if self.request.GET and self.request.GET["animal"] == "Snake":
+            animal = self.request.GET['animal']
+            self.response.write("<br />" + animal + " Has " + "$" + str(b.money_left) + " left to spend for the month")
+        else:
+            pass
 
     # @property
     # def inputs(self):
