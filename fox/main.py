@@ -117,21 +117,17 @@ class cow(Animal):
         return sound
     q = animal_sound()
     print q
-        if self.request.GET and self.request.GET["animal"] == "Snake":
-            animal = self.request.GET['animal']
-            self.response.write("<br />" + animal + " Has " + "$" + str(b.money_left) + " left to spend for the month")
-        else:
-            pass
+
 
     # @property
-    # def inputs(self):
+    # def animals(self):
     #     return
     #     pass
-    #
-    # @inputs.setter
-    # def inputs(self, arr):
+    # #
+    # @animals.setter
+    # def animals(self, arr):
     #     #change my private inputs variable
-    #     self.__inputs = arr
+    #     self.__animals = arr
     #     #sort through the mega array and create HTML inputs based on the info there
     #     for item in arr:
     #         self._form_inputs += '<input type="' + item[1] + '"' + '"name=" ' + item[0]
