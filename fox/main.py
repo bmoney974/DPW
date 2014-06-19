@@ -63,6 +63,13 @@ class Animal(object): #borrowing stuff from the object class
         self._close = '''
     </body>
 </html>'''
+
+        # if self.request.GET and self.request.GET["animal"] == "Snake":
+        #     print s.phylum
+        #
+        # else:
+        #     pass
+
         self.phylum = 0
         self.Class = 0
         self.order = 0
@@ -82,7 +89,10 @@ class Animal(object): #borrowing stuff from the object class
 
 
     def print_out(self):
-            return  self._head + self._body + self._close
+        return self._head + self._body + self._close
+
+
+
 
 class snake(Animal):
     def __init__(self):
