@@ -84,7 +84,7 @@ class Animal(object): #borrowing stuff from the object class
 
 
     def print_out(self):
-        return self._head + self._body + self._close + str(snake_sound.Animal + " " + dog_sound.Animal + " " + cow_sound.Animal + " " + snake_phylum.Animal + " " + snake_Class.Animal)
+        return self._head + self._body + self._close + str(snake_sound.Animal + " " + dog_sound.Animal + " " + cow_sound.Animal + " " + snake_phylum.Animal + " " + snake_Class.Animal + " " + dog_Class.Animal)
 
 
 
@@ -136,6 +136,7 @@ snake_genus.Animal = "Acrochordus"
 snake_imgurl = Animal()
 snake_imgurl.Animal = "http://upload.wikimedia.org/wikipedia/commons/thumb/7/72/Wart_snake_1.jpg/220px-Wart_snake_1.jpg"
 snake_average_lifespan = Animal()
+snake_average_lifespan.Animal = "4.1 years"
 snake_habitat = Animal()
 snake_habitat.Animal = "Rivers and Streams"
 snake_geolocation = Animal()
@@ -169,10 +170,25 @@ class dog(Animal):
 
 dog_sound = Animal()
 dog_sound.Animal = "Woof"
+dog_phylum = Animal()
+dog_phylum.Animal = "Chordata"
+dog_Class = Animal()
+dog_Class.Animal = "Mammalia"
+dog_order = Animal()
+dog_order.Animal = "Carnivora"
+dog_family = Animal()
+dog_family.Animal = "Canidae"
+dog_genus = Animal()
+dog_genus.Animal = "Canis"
+dog_imgurl = Animal()
+dog_imgurl.Animal = "http://upload.wikimedia.org/wikipedia/commons/thumb/2/26/YellowLabradorLooking_new.jpg/260px-YellowLabradorLooking_new.jpg"
+dog_average_lifespan = Animal()
+dog_average_lifespan.Animal = "10 - 3 years"
+dog_habitat = Animal()
+dog_habitat.Animal = "homes and yards"
+dog_geolocation = Animal()
+snake_geolocation.Animal = "USA"
 
-
-
-print dog_sound.Animal
 
 
 
