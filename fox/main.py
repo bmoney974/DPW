@@ -80,9 +80,28 @@ class Animal(object): #borrowing stuff from the object class
         self.average_lifespan = 0
         self.habitat = 0
         self.geolocation = 0
-        self.__sound = 0
+        self.__sound = "growl"
 
 
+
+
+    def print_out(self):
+        return self._head + self._body + self._close + str(self.__sound)
+
+
+snd = Animal()
+snd.Animal = "hsss"
+print snd.Animal
+
+class snake(Animal):
+    def __init__(self):
+        #constructor function for super class
+        super(snake, self).__init__() #Page.__init__()
+        self.__sound = "hsss"
+
+
+    def print_out(self):
+        return self.__sound
 
     @property
     def sound(self, value):
@@ -92,32 +111,8 @@ class Animal(object): #borrowing stuff from the object class
         self.__sound = value
 
 
-    def print_out(self):
-        return self._head + self._body + self._close + str(self.__sound)
 
 
-
-
-class snake(Animal):
-    def __init__(self):
-        #constructor function for super class
-        super(snake, self).__init__() #Page.__init__()
-        self.__sound = "hsss"
-
-    # @property
-    # def sound(self, value):
-    #     return self.__sound
-    # @sound.setter
-    # def sound(self, value):
-    #     self.__sound = value
-
-
-
-    # def animal_sound():
-    #     sound = "hssss"
-    #     return sound
-    # q = animal_sound()
-    # print q
 
 
 class dog(Animal):
@@ -125,22 +120,14 @@ class dog(Animal):
         #constructor function for super class
         super(dog, self).__init__() #Page.__init__()
 
-    def animal_sound():
-        sound = "woof"
-        return sound
-    q = animal_sound()
-    print q
+
 
 class cow(Animal):
     def __init__(self):
         #constructor function for super class
         super(cow, self).__init__() #Page.__init__()
 
-    def animal_sound():
-        sound = "mooo"
-        return sound
-    q = animal_sound()
-    print q
+
 
 
     # @property
