@@ -54,7 +54,13 @@ class Animal(object): #borrowing stuff from the object class
     </head>
     <body>'''
 
-        self._body = 'Filler '
+        self._body = '''
+<a href=?user=Bobby>Bobby's Money Left</a><br />
+<a href=?user=John>John's Money Left</a><br />
+<a href=?user=Sara>Sara's Money Left</a></br />
+<a href=?user=Mike>Mikes's Money Left</a><br />
+<a href=?user=Ashley>Ashley's Money Left</a>
+        '''
         self._close = '''
     </body>
 </html>'''
@@ -83,8 +89,12 @@ class snake(Animal):
     def __init__(self):
         #constructor function for super class
         super(snake, self).__init__() #Page.__init__()
-    def sound(self):
-        return
+
+    def animal_sound():
+        sound = "hssss"
+        return sound
+    q = animal_sound()
+    print q
 
 
 class dog(Animal):
@@ -92,10 +102,22 @@ class dog(Animal):
         #constructor function for super class
         super(dog, self).__init__() #Page.__init__()
 
+    def animal_sound():
+        sound = "woof"
+        return sound
+    q = animal_sound()
+    print q
+
 class cow(Animal):
     def __init__(self):
         #constructor function for super class
         super(cow, self).__init__() #Page.__init__()
+
+    def animal_sound():
+        sound = "mooo"
+        return sound
+    q = animal_sound()
+    print q
 
 
     # @property
