@@ -157,7 +157,6 @@ class dog(Animal):
     @sound.setter
     def sound(self, value):
         self.__sound = value
-        self.__sound = value
         self.__phylum = value
         self.__Class = value
         self.__order = value
@@ -187,7 +186,7 @@ dog_average_lifespan.Animal = "10 - 3 years"
 dog_habitat = Animal()
 dog_habitat.Animal = "homes and yards"
 dog_geolocation = Animal()
-snake_geolocation.Animal = "USA"
+dog_geolocation.Animal = "USA"
 
 
 
@@ -203,10 +202,40 @@ class cow(Animal):
     @sound.setter
     def sound(self, value):
         self.__sound = value
+        self.__sound = value
+        self.__phylum = value
+        self.__Class = value
+        self.__order = value
+        self.__family = value
+        self.__genus = value
+        self.__imgurl = value
+        self.__average_lifespan = value
+        self.__habitat = value
+        self.__geolocation = value
 
 cow_sound = Animal()
 cow_sound.Animal = "Moo"
-print cow_sound.Animal
+cow_phylum = Animal()
+cow_phylum.Animal = "Chordata"
+cow_Class = Animal()
+cow_Class.Animal = "Mammalia"
+cow_order = Animal()
+cow_order.Animal = "Artiodactyla"
+cow_family = Animal()
+cow_family.Animal = "Bovidae"
+cow_genus = Animal()
+cow_genus.Animal = "Bos"
+cow_imgurl = Animal()
+cow_imgurl.Animal = "http://upload.wikimedia.org/wikipedia/commons/thumb/f/fb/CH_cow_2.jpg/250px-CH_cow_2.jpg"
+cow_average_lifespan = Animal()
+cow_average_lifespan.Animal = "15 years"
+cow_habitat = Animal()
+cow_habitat.Animal = "fields and farms"
+cow_geolocation = Animal()
+cow_geolocation.Animal = "USA"
+
+
+
 
 
 
