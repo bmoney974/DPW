@@ -17,6 +17,7 @@ class MainHandler(webapp2.RequestHandler):
         s.average_lifespan = "4.1 years"
         s.habitat = "rivers and streams"
         s.geolocation = "India"
+        s.sound = "hsss"
 
         #dog
         d = Animal()
@@ -79,17 +80,20 @@ class Animal(object): #borrowing stuff from the object class
         self.average_lifespan = 0
         self.habitat = 0
         self.geolocation = 0
+        self.__sound = 0
 
 
-    def animal_sound():
-        sound = "growl"
-        return sound
-    q = animal_sound()
-    print q
+
+    @property
+    def sound(self, value):
+        return self.__sound
+    @sound.setter
+    def sound(self, value):
+        self.__sound = value
 
 
     def print_out(self):
-        return self._head + self._body + self._close
+        return self._head + self._body + self._close + str(self.__sound)
 
 
 
@@ -98,12 +102,22 @@ class snake(Animal):
     def __init__(self):
         #constructor function for super class
         super(snake, self).__init__() #Page.__init__()
+        self.__sound = "hsss"
 
-    def animal_sound():
-        sound = "hssss"
-        return sound
-    q = animal_sound()
-    print q
+    # @property
+    # def sound(self, value):
+    #     return self.__sound
+    # @sound.setter
+    # def sound(self, value):
+    #     self.__sound = value
+
+
+
+    # def animal_sound():
+    #     sound = "hssss"
+    #     return sound
+    # q = animal_sound()
+    # print q
 
 
 class dog(Animal):
