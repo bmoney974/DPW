@@ -7,10 +7,10 @@ class MainHandler(webapp2.RequestHandler):
 
         p = Animal()  #### deifines the main page to inherit from ####
         p.animals = [[snake()], [dog()], [cow()]] ### an array of each object
-        self.response.write(p.print_out()) ### this prints out the actual page structure and html and also the buttons 
+        self.response.write(p.print_out()) ### this prints out the actual page structure and html and also the buttons
 
 
-
+#### below is the conditional statement that tells the app which animals info to display when the button is clicked
 
         if self.request.GET["animal"] and self.request.GET["animal"] == "Snake":
             ani = self.request.GET["animal"]
@@ -28,11 +28,11 @@ class MainHandler(webapp2.RequestHandler):
 
 
         # self.response.write(p.print_out)
-class Animal(object): #borrowing stuff from the object class
+class Animal(object): ##### this is the main object that all other objects inherit from
     def __init__(self): #constructor
 
 
-
+##### below is the html page structure set up and css styles
 
         self._head = '''
 <!DOCTYPE HTML>
@@ -121,30 +121,12 @@ class Animal(object): #borrowing stuff from the object class
 </html>'''
 
 
-    def print_out(self):
+
+    def print_out(self): ### these are the actual instances of each section of the page html this displays the content on the page
         return self._body + self._head + self._close
 
 
 
-
-    # def condit(self):
-    #     if self.request.GET:
-    #         anm = self.request.GET["animal"]
-    #         self.respone.write(anm + snake_sound.Animal + " " + dog_sound.Animal + " " + cow_sound.Animal + " " + snake_phylum.Animal + " " + snake_Class.Animal + " " + dog_Class.Animal)
-
-
-
-
-
-
-    # def print_out(self):
-    #     return self._head + self._body + self._close
-
-
-
-# snd = Animal()
-# snd.Animal = "hsss"
-# print snd.Animal
 
 class snake(Animal):
     def __init__(self):
