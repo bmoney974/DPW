@@ -8,18 +8,21 @@ class MainHandler(webapp2.RequestHandler):
         p.animals = [[snake()], [dog()], [cow()]] ### an array of each object
         self.response.write(p.print_out()) ### this prints out the actual page structure and html and also the buttons
 
+        if self.request.GET:
+
 #### below is the conditional statement that tells the app which animals info to display when the button is clicked
-        if self.request.GET['animal'] and self.request.GET['animal'] == 'Snake':
-            ani = self.request.GET['animal']
-            self.response.write("<div class='info'>" + "<br /><img src='" + snake_imgurl.Animal +"' />" + "<div class='data'>" +  "<br /> " + "<h2>" + ani + " species details below </h2> <br />" + "Phylum: " + snake_phylum.Animal + "<br />" + "Class: " + snake_Class.Animal + "<br />" + "Order: " + snake_order.Animal + "<br />" + "Family: " + snake_family.Animal + "<br />" + "Genus: " + snake_genus.Animal + "<br />" + "Average Lifespan: " + snake_average_lifespan.Animal + "<br />" + "Habitat: " + snake_habitat.Animal + "<br />" + "Geo-Location: " + snake_geolocation.Animal + "<br />" + "Makes a sound like: " + snake_sound.Animal + "</div></div>")
-        elif self.request.GET['animal'] and self.request.GET['animal'] == "Dog":
-            ani = self.request.GET['animal']
-            self.response.write("<div class='info'>" +"<br /><img src='" + dog_imgurl.Animal +"' />" + "<div class='data'>" + "<br /> " + "<h2>" + ani + " species details below </h2> <br />" + "Phylum: " + dog_phylum.Animal + "<br />" + "Class: " + dog_Class.Animal + "<br />" + "Order: " + dog_order.Animal + "<br />" + "Family: " + dog_family.Animal + "<br />" + "Genus: " + dog_genus.Animal + "<br />" + "Average Lifespan: " + dog_average_lifespan.Animal + "<br />" + "Habitat: " + dog_habitat.Animal + "<br />" + "Geo-Location: " + dog_geolocation.Animal + "<br />" + "Makes a sound like: " + dog_sound.Animal + "</div></div>")
-        elif self.request.GET['animal'] and self.request.GET['animal'] == "Cow":
-            ani = self.request.GET['animal']
-            self.response.write("<div class='info'>" +"<br /><img src='" + cow_imgurl.Animal +"' />" + "<div class='data'>" + "<br /> " + "<h2>" + ani + " species details below </h2> <br />" + "Phylum: " + cow_phylum.Animal + "<br />" + "Class: " + cow_Class.Animal + "<br />" + "Order: " + cow_order.Animal + "<br />" + "Family: " + cow_family.Animal + "<br />" + "Genus: " + cow_genus.Animal + "<br />" + "Average Lifespan: " + cow_average_lifespan.Animal + "<br />" + "Habitat: " + cow_habitat.Animal + "<br />" + "Geo-Location: " + cow_geolocation.Animal + "<br />" + "Makes a sound like: " + cow_sound.Animal + "</div></div>")
-        else:
-            pass
+            if self.request.GET['animal'] and self.request.GET['animal'] == 'Snake':
+                ani = self.request.GET['animal']
+                self.response.write("<div class='info'>" + "<br /><img src='" + snake_imgurl.Animal +"' />" + "<div class='data'>" +  "<br /> " + "<h2>" + ani + " species details below </h2> <br />" + "Phylum: " + snake_phylum.Animal + "<br />" + "Class: " + snake_Class.Animal + "<br />" + "Order: " + snake_order.Animal + "<br />" + "Family: " + snake_family.Animal + "<br />" + "Genus: " + snake_genus.Animal + "<br />" + "Average Lifespan: " + snake_average_lifespan.Animal + "<br />" + "Habitat: " + snake_habitat.Animal + "<br />" + "Geo-Location: " + snake_geolocation.Animal + "<br />" + "Makes a sound like: " + snake_sound.Animal + "</div></div>")
+            elif self.request.GET['animal'] and self.request.GET['animal'] == "Dog":
+                ani = self.request.GET['animal']
+                self.response.write("<div class='info'>" +"<br /><img src='" + dog_imgurl.Animal +"' />" + "<div class='data'>" + "<br /> " + "<h2>" + ani + " species details below </h2> <br />" + "Phylum: " + dog_phylum.Animal + "<br />" + "Class: " + dog_Class.Animal + "<br />" + "Order: " + dog_order.Animal + "<br />" + "Family: " + dog_family.Animal + "<br />" + "Genus: " + dog_genus.Animal + "<br />" + "Average Lifespan: " + dog_average_lifespan.Animal + "<br />" + "Habitat: " + dog_habitat.Animal + "<br />" + "Geo-Location: " + dog_geolocation.Animal + "<br />" + "Makes a sound like: " + dog_sound.Animal + "</div></div>")
+            elif self.request.GET['animal'] and self.request.GET['animal'] == "Cow":
+                ani = self.request.GET['animal']
+                self.response.write("<div class='info'>" +"<br /><img src='" + cow_imgurl.Animal +"' />" + "<div class='data'>" + "<br /> " + "<h2>" + ani + " species details below </h2> <br />" + "Phylum: " + cow_phylum.Animal + "<br />" + "Class: " + cow_Class.Animal + "<br />" + "Order: " + cow_order.Animal + "<br />" + "Family: " + cow_family.Animal + "<br />" + "Genus: " + cow_genus.Animal + "<br />" + "Average Lifespan: " + cow_average_lifespan.Animal + "<br />" + "Habitat: " + cow_habitat.Animal + "<br />" + "Geo-Location: " + cow_geolocation.Animal + "<br />" + "Makes a sound like: " + cow_sound.Animal + "</div></div>")
+            else:
+                pass
+
 
 
 
