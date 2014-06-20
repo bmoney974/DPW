@@ -4,22 +4,19 @@ import webapp2
 
 class MainHandler(webapp2.RequestHandler):
     def get(self):
-
         p = Animal()  #### deifines the main page to inherit from ####
         p.animals = [[snake()], [dog()], [cow()]] ### an array of each object
         self.response.write(p.print_out()) ### this prints out the actual page structure and html and also the buttons
 
-
 #### below is the conditional statement that tells the app which animals info to display when the button is clicked
-
-        if self.request.GET["animal"] and self.request.GET["animal"] == "Snake":
-            ani = self.request.GET["animal"]
+        if self.request.GET['animal'] and self.request.GET['animal'] == 'Snake':
+            ani = self.request.GET['animal']
             self.response.write("<div class='info'>" + "<br /><img src='" + snake_imgurl.Animal +"' />" + "<div class='data'>" +  "<br /> " + "<h2>" + ani + " species details below </h2> <br />" + "Phylum: " + snake_phylum.Animal + "<br />" + "Class: " + snake_Class.Animal + "<br />" + "Order: " + snake_order.Animal + "<br />" + "Family: " + snake_family.Animal + "<br />" + "Genus: " + snake_genus.Animal + "<br />" + "Average Lifespan: " + snake_average_lifespan.Animal + "<br />" + "Habitat: " + snake_habitat.Animal + "<br />" + "Geo-Location: " + snake_geolocation.Animal + "<br />" + "Makes a sound like: " + snake_sound.Animal + "</div></div>")
-        elif self.request.GET["animal"] and self.request.GET["animal"] == "Dog":
-            ani = self.request.GET["animal"]
+        elif self.request.GET['animal'] and self.request.GET['animal'] == "Dog":
+            ani = self.request.GET['animal']
             self.response.write("<div class='info'>" +"<br /><img src='" + dog_imgurl.Animal +"' />" + "<div class='data'>" + "<br /> " + "<h2>" + ani + " species details below </h2> <br />" + "Phylum: " + dog_phylum.Animal + "<br />" + "Class: " + dog_Class.Animal + "<br />" + "Order: " + dog_order.Animal + "<br />" + "Family: " + dog_family.Animal + "<br />" + "Genus: " + dog_genus.Animal + "<br />" + "Average Lifespan: " + dog_average_lifespan.Animal + "<br />" + "Habitat: " + dog_habitat.Animal + "<br />" + "Geo-Location: " + dog_geolocation.Animal + "<br />" + "Makes a sound like: " + dog_sound.Animal + "</div></div>")
-        elif self.request.GET["animal"] and self.request.GET["animal"] == "Cow":
-            ani = self.request.GET["animal"]
+        elif self.request.GET['animal'] and self.request.GET['animal'] == "Cow":
+            ani = self.request.GET['animal']
             self.response.write("<div class='info'>" +"<br /><img src='" + cow_imgurl.Animal +"' />" + "<div class='data'>" + "<br /> " + "<h2>" + ani + " species details below </h2> <br />" + "Phylum: " + cow_phylum.Animal + "<br />" + "Class: " + cow_Class.Animal + "<br />" + "Order: " + cow_order.Animal + "<br />" + "Family: " + cow_family.Animal + "<br />" + "Genus: " + cow_genus.Animal + "<br />" + "Average Lifespan: " + cow_average_lifespan.Animal + "<br />" + "Habitat: " + cow_habitat.Animal + "<br />" + "Geo-Location: " + cow_geolocation.Animal + "<br />" + "Makes a sound like: " + cow_sound.Animal + "</div></div>")
         else:
             pass
@@ -139,7 +136,7 @@ class snake(Animal): #### the snake object which inherits from the main animal c
 
     @property
     def sound(self, value):
-        return self.__sound + self.__phylum
+        return self.__sound + self.__phylum  #### getter for the snake class
 
     @sound.setter
     def sound(self, value):
@@ -156,7 +153,7 @@ class snake(Animal): #### the snake object which inherits from the main animal c
         # self.__sound = "growl"
 
 
-snake_sound = Animal()
+snake_sound = Animal()  #### snake properties that are displayed in the app
 snake_sound.Animal = "Hsss"
 snake_phylum = Animal()
 snake_phylum.Animal = "Chordata"
@@ -187,7 +184,7 @@ class dog(Animal): #### the dog object which inherits from the main animal class
         super(dog, self).__init__() #Page.__init__()
 
     @property
-    def sound(self, value):
+    def sound(self, value):### dog getter
         return self.__sound
     @sound.setter
     def sound(self, value):
@@ -202,7 +199,7 @@ class dog(Animal): #### the dog object which inherits from the main animal class
         self.__habitat = value
         self.__geolocation = value
 
-dog_sound = Animal()
+dog_sound = Animal()   ### dog properties that are listed in the app
 dog_sound.Animal = "Woof"
 dog_phylum = Animal()
 dog_phylum.Animal = "Chordata"
@@ -232,7 +229,7 @@ class cow(Animal): #### the cow object which inherits from the main animal class
         super(cow, self).__init__() #Page.__init__()
 
     @property
-    def sound(self, value):
+    def sound(self, value):  #### cow getter
         return self.__sound
     @sound.setter
     def sound(self, value):
@@ -248,7 +245,7 @@ class cow(Animal): #### the cow object which inherits from the main animal class
         self.__habitat = value
         self.__geolocation = value
 
-cow_sound = Animal()
+cow_sound = Animal() # cow properties that are displayed in the app
 cow_sound.Animal = "Moo"
 cow_phylum = Animal()
 cow_phylum.Animal = "Chordata"
@@ -270,31 +267,6 @@ cow_geolocation = Animal()
 cow_geolocation.Animal = "USA"
 
 
-    # @property
-    # def animals(self):
-    #     return
-    #     pass
-    # #
-    # @animals.setter
-    # def animals(self, arr):
-    #     #change my private inputs variable
-    #     self.__animals = arr
-    #     #sort through the mega array and create HTML inputs based on the info there
-    #     for item in arr:
-    #         self._form_inputs += '<input type="' + item[1] + '"' + '"name=" ' + item[0]
-    #     # if there is a third item add it in
-    #         try:
-    #            self._form_inputs += '" placeholder="' + item[2] + '" />'
-    #     # other wise end the tag
-    #         except:
-    #             self._form_inputs += '" />'
-    #     print self._form_inputs
-    #
-    #     #POLYMORPHISM ALERT!!! --------------- method overriding
-    # def print_out(self):
-    #     return self._head + self._body + self._form_open + self._form_inputs + self._form_close
-    #
-    #
 
 
 
