@@ -9,6 +9,8 @@ class MainHandler(webapp2.RequestHandler):
         p.animals = [['snake'], ['dog'], ['cow']]
         self.response.write(p.print_out())
 
+        "<div class='info'>"
+
         if self.request.GET["animal"] and self.request.GET["animal"] == "Snake":
             ani = self.request.GET["animal"]
             self.response.write("<br /><img src='" + snake_imgurl.Animal +"' />" + "<br /> " + "<h2>" + ani + " species details below </h2> <br />" + "Phylum: " + snake_phylum.Animal + "<br />" + "Class: " + snake_Class.Animal + "<br />" + "Order: " + snake_order.Animal + "<br />" + "Family: " + snake_family.Animal + "<br />" + "Genus: " + snake_genus.Animal + "<br />" + "Average Lifespan: " + snake_average_lifespan.Animal + "<br />" + "Habitat: " + snake_habitat.Animal + "<br />" + "Geo-Location: " + snake_geolocation.Animal + "<br />" + "Makes a sound like: " + snake_sound.Animal)
@@ -20,9 +22,18 @@ class MainHandler(webapp2.RequestHandler):
             self.response.write("<br /><img src='" + cow_imgurl.Animal +"' />" + "<br /> " + "<h2>" + ani + " species details below </h2> <br />" + "Phylum: " + cow_phylum.Animal + "<br />" + "Class: " + cow_Class.Animal + "<br />" + "Order: " + cow_order.Animal + "<br />" + "Family: " + cow_family.Animal + "<br />" + "Genus: " + cow_genus.Animal + "<br />" + "Average Lifespan: " + cow_average_lifespan.Animal + "<br />" + "Habitat: " + cow_habitat.Animal + "<br />" + "Geo-Location: " + cow_geolocation.Animal + "<br />" + "Makes a sound like: " + cow_sound.Animal)
         else:
             pass
+        "</div>"
+
+'''
+<style>
 
 
 
+
+
+<style>
+
+'''
 
         # self.response.write(p.print_out)
 class Animal(object): #borrowing stuff from the object class
@@ -40,10 +51,11 @@ class Animal(object): #borrowing stuff from the object class
     <body>'''
 
         self._body = '''
+<div class = "btns">
 <a href=?animal=Snake><button>Snake</button></a>
 <a href=?animal=Dog><button>Dog</button></a>
 <a href=?animal=Cow><button>Cow</button></a>
-
+</div>
         '''
         self._close = '''
     </body>
