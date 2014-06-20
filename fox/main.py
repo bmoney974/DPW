@@ -128,7 +128,7 @@ class Animal(object): ##### this is the main object that all other objects inher
 
 
 
-class snake(Animal):
+class snake(Animal): #### the snake object which inherits from the main animal class and contains the animal data
     def __init__(self):
         #constructor function for super class
         super(snake, self).__init__() #Page.__init__()
@@ -181,7 +181,7 @@ print snake_sound.Animal
 
 
 
-class dog(Animal):
+class dog(Animal): #### the dog object which inherits from the main animal class and contains the animal data
     def __init__(self):
         #constructor function for super class
         super(dog, self).__init__() #Page.__init__()
@@ -226,7 +226,7 @@ dog_geolocation.Animal = "USA"
 
 
 
-class cow(Animal):
+class cow(Animal): #### the cow object which inherits from the main animal class and contains the animal data
     def __init__(self):
         #constructor function for super class
         super(cow, self).__init__() #Page.__init__()
