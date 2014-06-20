@@ -1,52 +1,27 @@
 
 import webapp2
 
+
 class MainHandler(webapp2.RequestHandler):
     def get(self):
-
-        #snake
-        # s = snake()
-        # s.phylum = "Chordata"
-        # s.Class = "Reptilia"
-        # s.order = "Squamata"
-        # s.family = "Acrochordidae"
-        # s.genus = "Acrochordus"
-        # s.imgurl = "http://upload.wikimedia.org/wikipedia/commons/thumb/7/72/Wart_snake_1.jpg/220px-Wart_snake_1.jpg"
-        # s.average_lifespan = "4.1 years"
-        # s.habitat = "rivers and streams"
-        # s.geolocation = "India"
-        # s.sound = "hsss"
-        #
-        # #dog
-        # d = Animal()
-        # d.phylum = "Chordata"
-        # d.Class = "Mammalia"
-        # d.order = "Carnivora"
-        # d.family = "Canidae"
-        # d.genus = "Canis"
-        # d.imgurl = "http://upload.wikimedia.org/wikipedia/commons/thumb/2/26/YellowLabradorLooking_new.jpg/260px-YellowLabradorLooking_new.jpg"
-        # d.average_lifespan = "10-13 years"
-        # d.habitat = "homes and yards"
-        # d.geolocation = "USA"
-        #
-        # #cow
-        # c = Animal()
-        # c.phylum = "Chordata"
-        # c.Class = "Mammalia"
-        # c.order = "Artiodactyla"
-        # c.family = "Bovidae"
-        # c.genus = "Bos"
-        # c.imgurl = "http://upload.wikimedia.org/wikipedia/commons/thumb/f/fb/CH_cow_2.jpg/250px-CH_cow_2.jpg"
-        # c.average_lifespan = "4.1 years"
-        # c.habitat = "fields and farms"
-        # c.geolocation = "USA"
 
         p = Animal()
         p.animals = [['snake'], ['dog'], ['cow']]
         self.response.write(p.print_out())
 
+        if self.request.GET["animal"] and self.request.GET["animal"] == "Snake":
+            ani = self.request.GET["animal"]
+            self.response.write("<br /> " + "<h2>" + ani + " species details below </h2> <br />" + "Phylum: " + snake_phylum.Animal + "<br />" + "Class: " + snake_Class.Animal + "<br />" + "Order: " + snake_order.Animal + "<br />" + "Family: " + snake_family.Animal + "<br />" + "Genus: " + snake_genus.Animal + "<br />" + "Average Lifespan: " + snake_average_lifespan.Animal + "<br />" + "Habitat: " + snake_habitat.Animal + "<br />" + "Geo-Location: " + snake_geolocation.Animal + "<br />" + "Makes a sound like: " + snake_sound.Animal)
+        else:
+            pass
+
+
+
+
+        # self.response.write(p.print_out)
 class Animal(object): #borrowing stuff from the object class
     def __init__(self): #constructor
+
 
 
 
@@ -69,22 +44,24 @@ class Animal(object): #borrowing stuff from the object class
 </html>'''
 
 
-        # self._phylum = 0
-        # self._Class = 0
-        # self._order = 0
-        # self._family = 0
-        # self._genus = 0
-        # self._imgurl = 0
-        # self._average_lifespan = 0
-        # self._habitat = 0
-        # self._geolocation = 0
-        # self._sound = "growl"
-
-
-
-
     def print_out(self):
-        return self._head + self._body + self._close + str(snake_sound.Animal + " " + dog_sound.Animal + " " + cow_sound.Animal + " " + snake_phylum.Animal + " " + snake_Class.Animal + " " + dog_Class.Animal)
+        return self._body + self._head + self._close
+
+
+
+
+    # def condit(self):
+    #     if self.request.GET:
+    #         anm = self.request.GET["animal"]
+    #         self.respone.write(anm + snake_sound.Animal + " " + dog_sound.Animal + " " + cow_sound.Animal + " " + snake_phylum.Animal + " " + snake_Class.Animal + " " + dog_Class.Animal)
+
+
+
+
+
+
+    # def print_out(self):
+    #     return self._head + self._body + self._close
 
 
 
@@ -97,7 +74,6 @@ class snake(Animal):
         #constructor function for super class
         super(snake, self).__init__() #Page.__init__()
         self.__sound = "hsss"
-
 
 
 
@@ -235,11 +211,6 @@ cow_geolocation = Animal()
 cow_geolocation.Animal = "USA"
 
 
-
-
-
-
-
     # @property
     # def animals(self):
     #     return
@@ -265,7 +236,6 @@ cow_geolocation.Animal = "USA"
     #     return self._head + self._body + self._form_open + self._form_inputs + self._form_close
     #
     #
-
 
 
 
