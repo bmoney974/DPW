@@ -5,9 +5,9 @@ import webapp2
 class MainHandler(webapp2.RequestHandler):
     def get(self):
 
-        p = Animal()
-        p.animals = [[snake()], [dog()], [cow()]]
-        self.response.write(p.print_out())
+        p = Animal()  #### deifines the main page to inherit from ####
+        p.animals = [[snake()], [dog()], [cow()]] ### an array of each object
+        self.response.write(p.print_out()) ### this prints out the actual page structure and html and also the buttons 
 
 
 
