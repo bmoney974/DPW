@@ -6,34 +6,26 @@ class MainHandler(webapp2.RequestHandler):
     def get(self):
 
         p = Animal()
-        p.animals = [['snake'], ['dog'], ['cow']]
+        p.animals = [[snake()], [dog()], [cow()]]
         self.response.write(p.print_out())
 
-        "<div class='info'>"
+
+
 
         if self.request.GET["animal"] and self.request.GET["animal"] == "Snake":
             ani = self.request.GET["animal"]
-            self.response.write("<br /><img src='" + snake_imgurl.Animal +"' />" + "<br /> " + "<h2>" + ani + " species details below </h2> <br />" + "Phylum: " + snake_phylum.Animal + "<br />" + "Class: " + snake_Class.Animal + "<br />" + "Order: " + snake_order.Animal + "<br />" + "Family: " + snake_family.Animal + "<br />" + "Genus: " + snake_genus.Animal + "<br />" + "Average Lifespan: " + snake_average_lifespan.Animal + "<br />" + "Habitat: " + snake_habitat.Animal + "<br />" + "Geo-Location: " + snake_geolocation.Animal + "<br />" + "Makes a sound like: " + snake_sound.Animal)
+            self.response.write("<div class='info'>" + "<br /><img src='" + snake_imgurl.Animal +"' />" + "<div class='data'>" +  "<br /> " + "<h2>" + ani + " species details below </h2> <br />" + "Phylum: " + snake_phylum.Animal + "<br />" + "Class: " + snake_Class.Animal + "<br />" + "Order: " + snake_order.Animal + "<br />" + "Family: " + snake_family.Animal + "<br />" + "Genus: " + snake_genus.Animal + "<br />" + "Average Lifespan: " + snake_average_lifespan.Animal + "<br />" + "Habitat: " + snake_habitat.Animal + "<br />" + "Geo-Location: " + snake_geolocation.Animal + "<br />" + "Makes a sound like: " + snake_sound.Animal + "</div></div>")
         elif self.request.GET["animal"] and self.request.GET["animal"] == "Dog":
             ani = self.request.GET["animal"]
-            self.response.write("<br /><img src='" + dog_imgurl.Animal +"' />" + "<br /> " + "<h2>" + ani + " species details below </h2> <br />" + "Phylum: " + dog_phylum.Animal + "<br />" + "Class: " + dog_Class.Animal + "<br />" + "Order: " + dog_order.Animal + "<br />" + "Family: " + dog_family.Animal + "<br />" + "Genus: " + dog_genus.Animal + "<br />" + "Average Lifespan: " + dog_average_lifespan.Animal + "<br />" + "Habitat: " + dog_habitat.Animal + "<br />" + "Geo-Location: " + dog_geolocation.Animal + "<br />" + "Makes a sound like: " + dog_sound.Animal)
+            self.response.write("<div class='info'>" +"<br /><img src='" + dog_imgurl.Animal +"' />" + "<div class='data'>" + "<br /> " + "<h2>" + ani + " species details below </h2> <br />" + "Phylum: " + dog_phylum.Animal + "<br />" + "Class: " + dog_Class.Animal + "<br />" + "Order: " + dog_order.Animal + "<br />" + "Family: " + dog_family.Animal + "<br />" + "Genus: " + dog_genus.Animal + "<br />" + "Average Lifespan: " + dog_average_lifespan.Animal + "<br />" + "Habitat: " + dog_habitat.Animal + "<br />" + "Geo-Location: " + dog_geolocation.Animal + "<br />" + "Makes a sound like: " + dog_sound.Animal + "</div></div>")
         elif self.request.GET["animal"] and self.request.GET["animal"] == "Cow":
             ani = self.request.GET["animal"]
-            self.response.write("<br /><img src='" + cow_imgurl.Animal +"' />" + "<br /> " + "<h2>" + ani + " species details below </h2> <br />" + "Phylum: " + cow_phylum.Animal + "<br />" + "Class: " + cow_Class.Animal + "<br />" + "Order: " + cow_order.Animal + "<br />" + "Family: " + cow_family.Animal + "<br />" + "Genus: " + cow_genus.Animal + "<br />" + "Average Lifespan: " + cow_average_lifespan.Animal + "<br />" + "Habitat: " + cow_habitat.Animal + "<br />" + "Geo-Location: " + cow_geolocation.Animal + "<br />" + "Makes a sound like: " + cow_sound.Animal)
+            self.response.write("<div class='info'>" +"<br /><img src='" + cow_imgurl.Animal +"' />" + "<div class='data'>" + "<br /> " + "<h2>" + ani + " species details below </h2> <br />" + "Phylum: " + cow_phylum.Animal + "<br />" + "Class: " + cow_Class.Animal + "<br />" + "Order: " + cow_order.Animal + "<br />" + "Family: " + cow_family.Animal + "<br />" + "Genus: " + cow_genus.Animal + "<br />" + "Average Lifespan: " + cow_average_lifespan.Animal + "<br />" + "Habitat: " + cow_habitat.Animal + "<br />" + "Geo-Location: " + cow_geolocation.Animal + "<br />" + "Makes a sound like: " + cow_sound.Animal + "</div></div>")
         else:
             pass
-        "</div>"
-
-'''
-<style>
 
 
 
-
-
-<style>
-
-'''
 
         # self.response.write(p.print_out)
 class Animal(object): #borrowing stuff from the object class
@@ -46,18 +38,85 @@ class Animal(object): #borrowing stuff from the object class
 <!DOCTYPE HTML>
 <html>
     <head>
-        <title></title>
+        <title>Animal Database</title>
+    <style>
+            # body{
+            # background:green;
+            }
+
+            .info {
+                width:960px;
+                min-width:960px;
+                display:block;
+                margin:0px auto;
+                border: 2px black solid;
+                padding:20px;
+                height:450px;
+                background:#FFFAFA;
+
+                }
+
+            .data {
+                float:left;
+                margin-right:30px;
+                }
+
+            .info img, .data {
+                position:relative;
+                left:200px;
+                }
+
+            .info img {
+                position:relative;
+                top:40px;
+                }
+
+            .btns {
+                 width: 100%;
+                 display:block;
+                 position:relative;
+                 left:630px;
+                 margin-bottom:50px;
+                 margin-top:30px;
+
+                 }
+
+            .instructions {
+                text-align:center
+                }
+
+            .header {
+                text-align: center;
+                background:#025949;
+                padding:40px;
+                position:relative;
+                top:-20px;
+                }
+
+            .header h1 {
+                color:white;
+                }
+
+    </style>
+
     </head>
+
     <body>'''
 
         self._body = '''
+
+<div class="header"><h1>Animal Database</h1></div>
+
 <div class = "btns">
+
 <a href=?animal=Snake><button>Snake</button></a>
 <a href=?animal=Dog><button>Dog</button></a>
 <a href=?animal=Cow><button>Cow</button></a>
 </div>
+<div class="instructions"><p>View each animal's information</p></div>
         '''
         self._close = '''
+
     </body>
 </html>'''
 
