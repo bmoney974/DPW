@@ -24,15 +24,17 @@ class MainHandler(webapp2.RequestHandler):
 
             #parsing the json
             jsondoc = json.load(result)
+            self.content = '<br />'
+            self.content += "City: " + jsondoc["city"] + "<br />"
+            self.content += "State: " + jsondoc["state"]
 
-            City = jsondoc["city"]
-            State = jsondoc["state"]
+        self.response.write(self.content)
 
-            
-            self.response.write("City: " + City + "<br />" + "State: " + State )
-
-
-
+# class ZipData(object):
+#     ''' this data object holds the data fetched by the model shown by the view'''
+#     def __init__(self):
+#         self.city = ''
+#         self.state = ''
 
 class Page(object): #borrowing stuff from the object class
     def __init__(self): #constructor
