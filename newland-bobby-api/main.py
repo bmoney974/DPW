@@ -6,13 +6,13 @@ import json
 class MainHandler(webapp2.RequestHandler):
     def get(self):
         p = FormPage()
-        p.inputs = [['movie', 'text', 'Movie Title'], ['Submit', 'submit']]
+        p.inputs = [['zip', 'text', 'Zip Code'], ['Submit', 'submit']]
         self.response.write(p.print_out_form())
         if self.request.GET:
             # get info from API
-            movie = self.request.GET['movie']
+            zip = self.request.GET['zip']
 
-            url = "http://www.omdbapi.com/?s=" + movie
+            url = "http://zip.elevenbasetwo.com/v2/US/" + zip
             # assemble the request
             request = urllib2.Request(url)
             # use the urllib 2 library to create an object to get the url
@@ -25,11 +25,11 @@ class MainHandler(webapp2.RequestHandler):
             #parsing the json
             jsondoc = json.load(result)
 
-            title = jsondoc["Search"][0]["Title"]
-            year = jsondoc["Search"][0]["Year"]
-            type = jsondoc["Search"][0]["Type"]
+            City = jsondoc["city"]
+            State = jsondoc["state"]
+
             
-            self.response.write("Film Title: " + title + "<br />" + "Year Made: " + year + "<br />" + "Type of Film: " + type + "<br />")
+            self.response.write("City: " + City + "<br />" + "State: " + State )
 
 
 
@@ -42,11 +42,11 @@ class Page(object): #borrowing stuff from the object class
 <!DOCTYPE HTML>
 <html>
     <head>
-        <title>Movie Genius</title>
+        <title>Zip Code Lookup</title>
     </head>
     <body>'''
 
-        self._body = 'Movie Genius '
+        self._body = 'Zip Code Lookup '
         self._close = '''
     </body>
 </html>'''
