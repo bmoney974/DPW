@@ -111,7 +111,7 @@ class FormPage(Page):
     def __init__(self):
         #constructor function for super class
         super(FormPage, self).__init__() #Page.__init__()
-        self._form_open = '<form method = "GET">'
+        self._form_open = '<form id = "zinput" method = "GET">'
         self._form_close = '</form>'
         self.__inputs = []
         self._form_inputs = ''
