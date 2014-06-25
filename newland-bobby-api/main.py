@@ -1,8 +1,8 @@
 
 import webapp2
 import urllib2 # gives us python classes and code need to requesting info receive and open it
-# from xml.dom import minidom
-from xml.dom import minidom
+# from xml.dom import json
+import json
 class MainHandler(webapp2.RequestHandler):
     def get(self):
         p = FormPage()
@@ -11,7 +11,8 @@ class MainHandler(webapp2.RequestHandler):
         if self.request.GET:
             # get info from API
             movie = self.request.GET['movie']
-            url = "http://www.omdbapi.com/?s=" + movie + "&" + "r=XML"
+
+            url = "http://www.omdbapi.com/?s=" + movie
             # assemble the request
             request = urllib2.Request(url)
             # use the urllib 2 library to create an object to get the url
@@ -20,20 +21,15 @@ class MainHandler(webapp2.RequestHandler):
             # use url to get a result - request info from api
             result = opener.open(request)
 
-            #parse xml
-            xmldoc = minidom.parse(result)
-            self.response.write(xmldoc.getElementsByTagName('Movie'))
-            self.content = '<br />'
 
-            list = xmldoc.getElementsByTagName('Title')
-            for item in list:
-                self.content += " Title: " + item.attributes['Title'].value
-                self.content += " Year: " + item.attributes['Year'].value
-                self.content += " Type: " + item.attributes['Type'].value
+            #parsing the json
+            jsondoc = json.load(result)
 
-                self.content += '<br />'
-            self.response.write(self.content)
-            print self.content
+            title = jsondoc["Search"][0]["Title"]
+            # condition = jsondoc['weather'][0]['description']
+            self.response.write("Title: " + title)
+
+
 
 
 class Page(object): #borrowing stuff from the object class
