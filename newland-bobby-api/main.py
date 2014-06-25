@@ -99,7 +99,7 @@ class Page(object): #borrowing stuff from the object class
     </head>
     <body>'''
 
-        self._body = 'Look up a U.S. Zip Code '
+        self._body = 'Enter a U.S. Zip Code '
         self._close = '''
     </body>
 </html>'''
