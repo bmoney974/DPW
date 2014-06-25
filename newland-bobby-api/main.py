@@ -7,39 +7,79 @@ class MainHandler(webapp2.RequestHandler):
     def get(self):
         p = FormPage()
         p.inputs = [['zip', 'text', 'Zip Code'], ['Submit', 'submit']]
-        self.response.write(p.print_out_form())
         if self.request.GET:
             # get info from API
-            zip = self.request.GET['zip']
+            zm = ZipModel() # tells it to connect the api
+            zm.zip = self.request.GET['zip'] # sends the zip from the URL to the model
+            zm.callApi()
+            zv = ZipView() # creates view
+            zv.zdos = zm.dos # takes data objects from model and give them to view
 
-            url = "http://zip.elevenbasetwo.com/v2/US/" + zip
-            # assemble the request
-            request = urllib2.Request(url)
-            # use the urllib 2 library to create an object to get the url
-            opener = urllib2.build_opener()
+            p._body = zv.content
+        self.response.write(p.print_out_form())
 
-            # use url to get a result - request info from api
-            result = opener.open(request)
+class ZipView(object):
+    ''' this class handles how the data is shown to the user  '''
+    def __init__(self):
+        self.__zdo = []
+        self.__content = '<br />'
+
+    def update(self):
+        for do in self.__zdos:
+            self.__content += do.city
+            self.__content += do.state
+
+    @property
+    def content(self):
+        return self.__content
 
 
+    @property
+    def zdos(self):
+        pass
+    @zdos.setter
+    def zdos(self, arr):
+        self.__zdos = arr
+        self.update()
 
-            #parsing the json
 
-            jsondoc = json.load(result)
-            self.content = '<br />'
-            self.content += "City: " + jsondoc["city"] + "<br />"
-            self.content += "State: " + jsondoc["state"]
+class ZipModel(object):
+    '''    This model handles fetching parsing and sorting data from api '''
 
-            self._dos = []
+    def __init__(self):
+        self.__url = "http://zip.elevenbasetwo.com/v2/US/"
+        self.__zip = ''
 
-            do = ZipData()
-            do.city = "City: " + jsondoc["city"] + "<br />"
-            do.state = "State: " + jsondoc["state"]
-            self._dos.append(do)
+        # parse URL
 
-            print self._dos
+    def callApi(self):
+     # assemble the request
+        request = urllib2.Request(self.__url + self.__zip)
+        # use the urllib 2 library to create an object to get the url
+        opener = urllib2.build_opener()
+        # use url to get a result - request info from api
+        result = opener.open(request)
+        self._dos = []
+            # sorts the data
+        jsondoc = json.load(result)
+        do = ZipData()
+        do.city = "City: " + jsondoc["city"] + "<br />"
+        do.state = "State: " + jsondoc["state"]
+        self._dos.append(do)
 
-            self.response.write(self.content)
+    @property
+    def dos(self):
+        return self._dos
+
+
+    @property
+    def zip(self):
+        pass
+
+    @zip.setter
+    def zip(self, z):
+        self.__zip = z
+
 
 class ZipData(object):
     ''' this data object holds the data fetched by the model shown by the view'''
@@ -99,7 +139,7 @@ class FormPage(Page):
 
         #POLYMORPHISM ALERT!!! --------------- method overriding
     def print_out_form(self):
-        return self._head + self._body + self._form_open + self._form_inputs + self._form_close + self._close
+        return self._head + "U.S. Zip Code Lookup <br />" + self._form_open + self._form_inputs + self._form_close + self._body + self._close
 
 
 
