@@ -42,11 +42,11 @@ class Page(object): #borrowing stuff from the object class
 <!DOCTYPE HTML>
 <html>
     <head>
-        <title>Zip Code Lookup</title>
+        <title>U.S. Zip Code Lookup</title>
     </head>
     <body>'''
 
-        self._body = 'Zip Code Lookup '
+        self._body = 'Look up a U.S. Zip Code '
         self._close = '''
     </body>
 </html>'''
