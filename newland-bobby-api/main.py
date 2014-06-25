@@ -62,9 +62,7 @@ class FormPage(Page):
         self._form_close = '</form>'
         self.__inputs = []
         self._form_inputs = ''
-        #<input type="text" value="" name="first_name" placeholder="First Name" />
-        #<input type=""text value="" name="last_name" placeholder="Last Name" /> ['first_name', 'First Name']
-        #<input type='Submit' value='Submit' />
+
 
     @property
     def inputs(self):
