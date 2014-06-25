@@ -26,8 +26,10 @@ class MainHandler(webapp2.RequestHandler):
             jsondoc = json.load(result)
 
             title = jsondoc["Search"][0]["Title"]
-            # condition = jsondoc['weather'][0]['description']
-            self.response.write("Title: " + title)
+            year = jsondoc["Search"][0]["Year"]
+            type = jsondoc["Search"][0]["Type"]
+            
+            self.response.write("Film Title: " + title + "<br />" + "Year Made: " + year + "<br />" + "Type of Film: " + type + "<br />")
 
 
 
