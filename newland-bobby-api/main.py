@@ -27,7 +27,7 @@ class MainHandler(webapp2.RequestHandler):
 
             list = xmldoc.getElementsByTagName('Title')
             for item in list:
-                self.content += item.attributes['Title'].value
+                self.content += " Title: " + item.attributes['Title'].value
                 self.content += " Year: " + item.attributes['Year'].value
                 self.content += " Type: " + item.attributes['Type'].value
 
@@ -44,11 +44,11 @@ class Page(object): #borrowing stuff from the object class
 <!DOCTYPE HTML>
 <html>
     <head>
-        <title></title>
+        <title>Movie Genius</title>
     </head>
     <body>'''
 
-        self._body = 'Weather App '
+        self._body = 'Movie Genius '
         self._close = '''
     </body>
 </html>'''
