@@ -7,7 +7,8 @@ class MainHandler(webapp2.RequestHandler):
     def get(self):
         p = FormPage()
         p.inputs = [['zip', 'text', 'Zip Code'], ['Submit', 'submit']]
-        if self.request.GET:
+
+        if self.request.GET and self.request.GET['zip'] != "":
             zp = self.request.GET['zip']
             zm = ZipModel() # tells it to connect the api
             zm.zip = self.request.GET['zip'] # sends the zip from the URL to the model
@@ -16,7 +17,11 @@ class MainHandler(webapp2.RequestHandler):
             zv.zdos = zm.dos # takes data objects from model and give them to view
 
             p._body = "<hr /><br />"+ zp +" is the Zip Code for:" + zv.content
+
         self.response.write(p.print_out_form())
+
+
+
 
 class ZipView(object):
     ''' this class handles how the data is shown to the user  '''
