@@ -8,6 +8,71 @@ class MainHandler(webapp2.RequestHandler):
         p.animals = [[snake()], [dog()], [cow()]] ### an array of each object
         self.response.write(p.print_out()) ### this prints out the actual page structure and html and also the buttons
 
+        snake_sound = Animal()  #### snake properties that are displayed in the app
+        snake_sound.Animal = "Hsss"
+        snake_phylum = Animal()
+        snake_phylum.Animal = "Chordata"
+        snake_Class = Animal()
+        snake_Class.Animal = "Reptilia"
+        snake_order = Animal()
+        snake_order.Animal = "Squamata"
+        snake_family = Animal()
+        snake_family.Animal = "Acrochordidae"
+        snake_genus = Animal()
+        snake_genus.Animal = "Acrochordus"
+        snake_imgurl = Animal()
+        snake_imgurl.Animal = "http://upload.wikimedia.org/wikipedia/commons/thumb/7/72/Wart_snake_1.jpg/220px-Wart_snake_1.jpg"
+        snake_average_lifespan = Animal()
+        snake_average_lifespan.Animal = "4.1 years"
+        snake_habitat = Animal()
+        snake_habitat.Animal = "Rivers and Streams"
+        snake_geolocation = Animal()
+        snake_geolocation.Animal = "India"
+        print snake_sound.Animal
+
+        dog_sound = Animal()   ### dog properties that are listed in the app
+        dog_sound.Animal = "Woof"
+        dog_phylum = Animal()
+        dog_phylum.Animal = "Chordata"
+        dog_Class = Animal()
+        dog_Class.Animal = "Mammalia"
+        dog_order = Animal()
+        dog_order.Animal = "Carnivora"
+        dog_family = Animal()
+        dog_family.Animal = "Canidae"
+        dog_genus = Animal()
+        dog_genus.Animal = "Canis"
+        dog_imgurl = Animal()
+        dog_imgurl.Animal = "http://upload.wikimedia.org/wikipedia/commons/thumb/2/26/YellowLabradorLooking_new.jpg/260px-YellowLabradorLooking_new.jpg"
+        dog_average_lifespan = Animal()
+        dog_average_lifespan.Animal = "10 - 3 years"
+        dog_habitat = Animal()
+        dog_habitat.Animal = "homes and yards"
+        dog_geolocation = Animal()
+        dog_geolocation.Animal = "USA"
+
+        cow_sound = Animal() # cow properties that are displayed in the app
+        cow_sound.Animal = "Moo"
+        cow_phylum = Animal()
+        cow_phylum.Animal = "Chordata"
+        cow_Class = Animal()
+        cow_Class.Animal = "Mammalia"
+        cow_order = Animal()
+        cow_order.Animal = "Artiodactyla"
+        cow_family = Animal()
+        cow_family.Animal = "Bovidae"
+        cow_genus = Animal()
+        cow_genus.Animal = "Bos"
+        cow_imgurl = Animal()
+        cow_imgurl.Animal = "http://upload.wikimedia.org/wikipedia/commons/thumb/f/fb/CH_cow_2.jpg/250px-CH_cow_2.jpg"
+        cow_average_lifespan = Animal()
+        cow_average_lifespan.Animal = "15 years"
+        cow_habitat = Animal()
+        cow_habitat.Animal = "fields and farms"
+        cow_geolocation = Animal()
+        cow_geolocation.Animal = "USA"
+
+
         if self.request.GET:
 
 #### below is the conditional statement that tells the app which animals info to display when the button is clicked
@@ -156,27 +221,7 @@ class snake(Animal): #### the snake object which inherits from the main animal c
         # self.__sound = "growl"
 
 
-snake_sound = Animal()  #### snake properties that are displayed in the app
-snake_sound.Animal = "Hsss"
-snake_phylum = Animal()
-snake_phylum.Animal = "Chordata"
-snake_Class = Animal()
-snake_Class.Animal = "Reptilia"
-snake_order = Animal()
-snake_order.Animal = "Squamata"
-snake_family = Animal()
-snake_family.Animal = "Acrochordidae"
-snake_genus = Animal()
-snake_genus.Animal = "Acrochordus"
-snake_imgurl = Animal()
-snake_imgurl.Animal = "http://upload.wikimedia.org/wikipedia/commons/thumb/7/72/Wart_snake_1.jpg/220px-Wart_snake_1.jpg"
-snake_average_lifespan = Animal()
-snake_average_lifespan.Animal = "4.1 years"
-snake_habitat = Animal()
-snake_habitat.Animal = "Rivers and Streams"
-snake_geolocation = Animal()
-snake_geolocation.Animal = "India"
-print snake_sound.Animal
+
 
 
 
@@ -202,26 +247,7 @@ class dog(Animal): #### the dog object which inherits from the main animal class
         self.__habitat = value
         self.__geolocation = value
 
-dog_sound = Animal()   ### dog properties that are listed in the app
-dog_sound.Animal = "Woof"
-dog_phylum = Animal()
-dog_phylum.Animal = "Chordata"
-dog_Class = Animal()
-dog_Class.Animal = "Mammalia"
-dog_order = Animal()
-dog_order.Animal = "Carnivora"
-dog_family = Animal()
-dog_family.Animal = "Canidae"
-dog_genus = Animal()
-dog_genus.Animal = "Canis"
-dog_imgurl = Animal()
-dog_imgurl.Animal = "http://upload.wikimedia.org/wikipedia/commons/thumb/2/26/YellowLabradorLooking_new.jpg/260px-YellowLabradorLooking_new.jpg"
-dog_average_lifespan = Animal()
-dog_average_lifespan.Animal = "10 - 3 years"
-dog_habitat = Animal()
-dog_habitat.Animal = "homes and yards"
-dog_geolocation = Animal()
-dog_geolocation.Animal = "USA"
+
 
 
 
@@ -248,26 +274,6 @@ class cow(Animal): #### the cow object which inherits from the main animal class
         self.__habitat = value
         self.__geolocation = value
 
-cow_sound = Animal() # cow properties that are displayed in the app
-cow_sound.Animal = "Moo"
-cow_phylum = Animal()
-cow_phylum.Animal = "Chordata"
-cow_Class = Animal()
-cow_Class.Animal = "Mammalia"
-cow_order = Animal()
-cow_order.Animal = "Artiodactyla"
-cow_family = Animal()
-cow_family.Animal = "Bovidae"
-cow_genus = Animal()
-cow_genus.Animal = "Bos"
-cow_imgurl = Animal()
-cow_imgurl.Animal = "http://upload.wikimedia.org/wikipedia/commons/thumb/f/fb/CH_cow_2.jpg/250px-CH_cow_2.jpg"
-cow_average_lifespan = Animal()
-cow_average_lifespan.Animal = "15 years"
-cow_habitat = Animal()
-cow_habitat.Animal = "fields and farms"
-cow_geolocation = Animal()
-cow_geolocation.Animal = "USA"
 
 
 
