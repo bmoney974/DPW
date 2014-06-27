@@ -16,7 +16,7 @@ class MainHandler(webapp2.RequestHandler):
             zv = ZipView() # creates view
             zv.zdos = zm.dos # takes data objects from model and give them to view
 
-            p._body = "<div class='data-wrapper'>" + "<br />"+zp +" is the Zip Code for:" + zv.content + "</div>"
+            p._body = "<div class='data-wrapper'>" + "<br />" + "<h2>"+zp+ "</h2>" + "<br />" + "<h4>" + " is the Zip Code for:" + "</h4>" + "<h3>" +zv.content + "</h3>" + "</div>"
 
         self.response.write(p.print_out_form())
 
@@ -100,34 +100,61 @@ class Page(object): #borrowing stuff from the object class
 <!DOCTYPE HTML>
 <html>
     <head>
-        <title>U.S. Zip Code Lookup</title>
+        <title>Zip Snip | Zip Code Lookup</title>
         <link href='http://fonts.googleapis.com/css?family=Yanone+Kaffeesatz' rel='stylesheet' type='text/css'>
         <style>
+
+            .data-wrapper h2 {
+                position:relative;
+                top:-70px;
+                text-align:center;
+                color:blue;
+                }
+            .data-wrapper h4 {
+                position:relative;
+                top:-120px;
+                text-align:center;
+                }
+            .data-wrapper h3 {
+                position:relative;
+                top:-150px;
+                text-align:center;
+                }
+
             .data-wrapper {
                 border: 1px solid black;
-                float:left;
-                padding: 20px;
+
+                margin:0px auto;
+                padding-left: 20px;
+                padding-right: 20px;
+                width:200px;
+                height:100px;
+
                 }
 
             #zinput {
                 width:100%;
                 position:relative;
-                left:60px;
+                left:80px;
                 top:30px;
 
                 }
 
             .z-form-bg {
                 border: 1px solid black;
-                width: 300px;
+                width: 350px;
                 height:100px;
-                float:left;
+                margin: 0px auto;
                 }
 
             .header {
+                width:95%;
                 background:blue;
                 padding:20px;
-                height:120px;
+                height:180px;
+                margin:0px auto;
+                margin-bottom:20px;
+                
                 }
 
             .header h1, .header h4 {
@@ -150,8 +177,22 @@ class Page(object): #borrowing stuff from the object class
 
             .cta-text {
                 position:relative;
-                left:-230px;
-                top:10px;
+                margin: 0px auto;
+                left:635px;
+                top:-40px;
+                }
+
+            .header img {
+            display:block;
+                margin:0px auto;
+                }
+
+            .ad-wrapper img {
+                display:block;
+                margin:0px auto;
+                margin-bottom: 30px;
+                width:30%
+                height:auto;
                 }
 
         </style>
@@ -198,7 +239,7 @@ class FormPage(Page):
 
         #POLYMORPHISM ALERT!!! --------------- method overriding
     def print_out_form(self):
-        return self._head + "<div class='header'><h1>Zip Snip</h1><h4>Zip Code Lookup</h4></div> <br />" + self._form_open + self._form_inputs + self._form_close + self._body + self._close
+        return self._head + "<div class='header'> <img src='images/zipsnip.png' /></div>" + "<div class='ad-wrapper'><img src='images/Doctor-Banner-Ad-Horizontal.png' /></div>" + self._form_open + self._form_inputs + self._form_close + self._body + "<div class='data-box'></div>" + self._close
 
 
 
