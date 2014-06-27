@@ -16,7 +16,7 @@ class MainHandler(webapp2.RequestHandler):
             zv = ZipView() # creates view
             zv.zdos = zm.dos # takes data objects from model and give them to view
 
-            p._body = "<hr /><br />"+ zp +" is the Zip Code for:" + zv.content
+            p._body = "<div class='data-wrapper'>" + "<br />"+zp +" is the Zip Code for:" + zv.content + "</div>"
 
         self.response.write(p.print_out_form())
 
@@ -101,10 +101,64 @@ class Page(object): #borrowing stuff from the object class
 <html>
     <head>
         <title>U.S. Zip Code Lookup</title>
+        <link href='http://fonts.googleapis.com/css?family=Yanone+Kaffeesatz' rel='stylesheet' type='text/css'>
+        <style>
+            .data-wrapper {
+                border: 1px solid black;
+                float:left;
+                padding: 20px;
+                }
+
+            #zinput {
+                width:100%;
+                position:relative;
+                left:60px;
+                top:30px;
+
+                }
+
+            .z-form-bg {
+                border: 1px solid black;
+                width: 300px;
+                height:100px;
+                float:left;
+                }
+
+            .header {
+                background:blue;
+                padding:20px;
+                height:120px;
+                }
+
+            .header h1, .header h4 {
+                color:white;
+                text-align:center;
+                }
+
+            .header h1 {
+                font-size: 60px;
+                position:relative;
+                top:-40px;
+                font-family: 'Yanone Kaffeesatz', sans-serif;
+                }
+
+            .header h4 {
+                font-size:20px;
+                position:relative;
+                top:-70px;
+                }
+
+            .cta-text {
+                position:relative;
+                left:-230px;
+                top:10px;
+                }
+
+        </style>
     </head>
     <body>'''
 
-        self._body = 'Enter a U.S. Zip Code '
+        self._body = '<div class="cta-text">Enter a U.S. Zip Code </div> '
         self._close = '''
     </body>
 </html>'''
@@ -116,8 +170,8 @@ class FormPage(Page):
     def __init__(self):
         #constructor function for super class
         super(FormPage, self).__init__() #Page.__init__()
-        self._form_open = '<form id = "zinput" method = "GET">'
-        self._form_close = '</form>'
+        self._form_open = '<div class="z-form-bg"><form id = "zinput" method = "GET">'
+        self._form_close = '</form></div>'
         self.__inputs = []
         self._form_inputs = ''
 
@@ -144,7 +198,7 @@ class FormPage(Page):
 
         #POLYMORPHISM ALERT!!! --------------- method overriding
     def print_out_form(self):
-        return self._head + "U.S. Zip Code Lookup <br />" + self._form_open + self._form_inputs + self._form_close + self._body + self._close
+        return self._head + "<div class='header'><h1>Zip Snip</h1><h4>Zip Code Lookup</h4></div> <br />" + self._form_open + self._form_inputs + self._form_close + self._body + self._close
 
 
 
