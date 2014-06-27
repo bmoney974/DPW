@@ -1,3 +1,10 @@
+"""
+Bobby Newland
+DPW
+API Final Project
+6-26-14
+"""
+
 
 import webapp2
 import urllib2 # gives us python classes and code need to requesting info receive and open it
@@ -154,7 +161,7 @@ class Page(object): #borrowing stuff from the object class
                 height:180px;
                 margin:0px auto;
                 margin-bottom:20px;
-                
+
                 }
 
             .header h1, .header h4 {
